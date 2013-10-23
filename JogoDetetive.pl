@@ -20,10 +20,10 @@ local(jardim).
 local('salao de jogos').
 local(escritorio).
 local(entrada).
-local('sala de musica).
+local('sala de musica').
 local('sala de jantar').
 local(cozinha).
 local('salao de festas').
 local(hall).
-local(sala de estar).
+local('sala de estar').
 local(adega).
