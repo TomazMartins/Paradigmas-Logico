@@ -43,6 +43,21 @@ senhorMarinho_sabeQueNao(loca,escritorio).
 senhorMarinho_sabeQueNao(loca,entrada).
 senhorMarinho_sabeQueNao(loca,'sala de musica').
 
+donaVioleta_sabeQueNao(suspeito,'senhor marinho').
+donaVioleta_sabeQueNao(suspeito,'senhorita rosa').
+donaVioleta_sabeQueNao(arma,castical).
+donaVioleta_sabeQueNao(local,'sala de jantar').
+
+professorBlack_sabeQueNao(arma,revolver).
+professorBlack_sabeQueNao(arma,espingarda).
+professorBlack_sabeQueNao(local,cozinha).
+professorBlack_sabeQueNao(local,'salao de festas').
+
+senhoritaRosa_sabeQueNao(suspeito,'coronel mostarda').
+senhoritaRosa_sabeQueNao(arma,'soco ingles').
+senhoritaRosa_sabeQueNao(local,hall).
+senhoritaRosa_sabeQueNao(local,'sala de estar').
+
 crime(Susteito,Arma,Local) :- suspeito(Suspeito),arma(Arma),local(Local).
 
 start :- tab(15),write('Seja bem-vindo a Delegacia Prolog!'),nl,
