@@ -28,9 +28,20 @@ local(hall).
 local('sala de estar').
 local(adega).
 
-coronel_mostarda_sabe_que_nao(suspeito,'dona blanca').
-coronel_mostarda_sabe_que_nao(suspeito,'senhor marinho').
-coronel_mostarda_sabe_que_nao(local,biblioteca).
+coronelMostarda_sabeQueNao(suspeito,'dona branca').
+coronelMostarda_sabeQueNao(arma,corda).
+coronelMostarda_sabeQueNao(arma,punhal).
+coronelMostarda_sabeQueNao(local,biblioteca).
+
+donaBranca_sabeQueNao(susteito,'dona violeta').
+donaBranca_sabeQueNao(arma,veneno).
+donaBranca_sabeQueNao(local,'salao de jogos').
+donaBranca_sabeQueNao(local, adega).
+
+senhorMarinho_sabeQueNao(arma,'chave inglesa').
+senhorMarinho_sabeQueNao(loca,escritorio).
+senhorMarinho_sabeQueNao(loca,entrada).
+senhorMarinho_sabeQueNao(loca,'sala de musica').
 
 crime(Susteito,Arma,Local) :- suspeito(Suspeito),arma(Arma),local(Local).
 
