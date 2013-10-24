@@ -60,6 +60,10 @@ senhoritaRosa_sabeQueNao(local,'sala de estar').
 
 possivelCrime(Susteito,Arma,Local) :- suspeito(Suspeito),arma(Arma),local(Local).
 
+retiraSuspeito(X) :- retract(suspeito(X)),write('Suspeito retirado'),nl.
+retiraLocal(X) :- retract(local(X)),write('Local retirado'),nl.
+retiraArma(X) :- retract(arma(X)),write('Arma retirada'),nl.
+
 start :- tab(15),write('Seja bem-vindo a Delegacia Prolog!'),nl,
          tab(15),write('Aqui solucionamos os crimes utilizando raciocionio logico.'),nl,nl,
          tab(15),write('Qual o seu nome, agente?'),nl,read(X),nl,
