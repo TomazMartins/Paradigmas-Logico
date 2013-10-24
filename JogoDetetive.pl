@@ -1,3 +1,7 @@
+:- dynamic suspeito/1.
+:- dynamic arma/1.
+:- dynamic local/1. 
+
 suspeito('coronel mostarda').
 suspeito('dona branca').
 suspeito('senhor marinho').
@@ -28,35 +32,37 @@ local(hall).
 local('sala de estar').
 local(adega).
 
-coronelMostarda_sabeQueNao(suspeito,'dona branca').
-coronelMostarda_sabeQueNao(arma,corda).
-coronelMostarda_sabeQueNao(arma,punhal).
-coronelMostarda_sabeQueNao(local,biblioteca).
+sabeQueNao('coronel mostarda',suspeito,'dona branca').
+sabeQueNao('coronel mostarda',arma,corda).
+sabeQueNao('coronel mostarda',arma,punhal).
+sabeQueNao('coronel mostarda',local,biblioteca).
 
-donaBranca_sabeQueNao(susteito,'dona violeta').
-donaBranca_sabeQueNao(arma,veneno).
-donaBranca_sabeQueNao(local,'salao de jogos').
-donaBranca_sabeQueNao(local, adega).
+sabeQueNao('dona branca',susteito,'dona violeta').
+sabeQueNao('dona branca',arma,veneno).
+sabeQueNao('dona branca',local,'salao de jogos').
+sabeQueNao('dona branca',local, adega).
 
-senhorMarinho_sabeQueNao(arma,'chave inglesa').
-senhorMarinho_sabeQueNao(loca,escritorio).
-senhorMarinho_sabeQueNao(loca,entrada).
-senhorMarinho_sabeQueNao(loca,'sala de musica').
+sabeQueNao('senhor marinho',suspeito,desconhecido).
+sabeQueNao('senhor marinho',arma,'chave inglesa').
+sabeQueNao('senhor marinho',local,escritorio).
+sabeQueNao('senhor marinho',local,entrada).
+sabeQueNao('senhor marinho',local,'sala de musica').
 
-donaVioleta_sabeQueNao(suspeito,'senhor marinho').
-donaVioleta_sabeQueNao(suspeito,'senhorita rosa').
-donaVioleta_sabeQueNao(arma,castical).
-donaVioleta_sabeQueNao(local,'sala de jantar').
+sabeQueNao('dona violeta',suspeito,'senhor marinho').
+sabeQueNao('dona violeta',suspeito,'senhorita rosa').
+sabeQueNao('dona violeta',arma,castical).
+sabeQueNao('dona violeta',local,'sala de jantar').
 
-professorBlack_sabeQueNao(arma,revolver).
-professorBlack_sabeQueNao(arma,espingarda).
-professorBlack_sabeQueNao(local,cozinha).
-professorBlack_sabeQueNao(local,'salao de festas').
+sabeQueNao('professor black',suspeito,desconhecido).
+sabeQueNao('professor black',arma,revolver).
+sabeQueNao('professor black',arma,espingarda).
+sabeQueNao('professor black',local,cozinha).
+sabeQueNao('professor black',local,'salao de festas').
 
-senhoritaRosa_sabeQueNao(suspeito,'coronel mostarda').
-senhoritaRosa_sabeQueNao(arma,'soco ingles').
-senhoritaRosa_sabeQueNao(local,hall).
-senhoritaRosa_sabeQueNao(local,'sala de estar').
+sabeQueNao('senhorita rosa',suspeito,'coronel mostarda').
+sabeQueNao('senhorita rosa',arma,'soco ingles').
+sabeQueNao('senhorita rosa',local,hall).
+sabeQueNao('senhorita rosa',local,'sala de estar').
 
 possivelCrime(Susteito,Arma,Local) :- suspeito(Suspeito),arma(Arma),local(Local).
 
