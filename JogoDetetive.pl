@@ -58,11 +58,19 @@ senhoritaRosa_sabeQueNao(arma,'soco ingles').
 senhoritaRosa_sabeQueNao(local,hall).
 senhoritaRosa_sabeQueNao(local,'sala de estar').
 
-crime(Susteito,Arma,Local) :- suspeito(Suspeito),arma(Arma),local(Local).
+possivelCrime(Susteito,Arma,Local) :- suspeito(Suspeito),arma(Arma),local(Local).
 
 start :- tab(15),write('Seja bem-vindo a Delegacia Prolog!'),nl,
          tab(15),write('Aqui solucionamos os crimes utilizando raciocionio logico.'),nl,nl,
          tab(15),write('Qual o seu nome, agente?'),nl,read(X),nl,
          tab(15),write('Ola, agente '),write(X),write(', execute caso1 para verificar os dados do seu primeiro caso.'),nl,
 	 tab(15),write('Bom trabalho!'),nl.
+
+caso1 :- tab(15),write('Um grande empresario foi assassinado dentro da sua propria casa.'),nl,
+	 tab(15),write('Alguns suspeitos ja foram identificados e levados para a casa do falecido.'),nl,
+	 tab(15),write('Os possiveis locais e armas ja estao inclusos no seu banco de dados.'),nl,
+	 tab(15),write('Interroge os suspeitos e atualize o banco de forma a auxiliar na conclusao do caso.'),nl,
+	 tab(15),write('Quando tiver solucionado, execute solucao(Suspeito,Arma,Local) passando as respostas para cada parametro.'),nl,nl,
+	 tab(15),write('Bom trabalho!'),nl.
+
 
