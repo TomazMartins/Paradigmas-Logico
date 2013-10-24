@@ -82,5 +82,9 @@ caso1 :- tab(15),write('Um grande empresario foi assassinado dentro da sua propr
 	 tab(15),write('Interroge os suspeitos e atualize o banco de forma a auxiliar na conclusao do caso.'),nl,
 	 tab(15),write('Quando tiver solucionado, execute solucao(Suspeito,Arma,Local) passando as respostas para cada parametro.'),nl,nl,
 	 tab(15),write('Bom trabalho!'),nl.
+pergunta(Testemunha,Sobre,Suspeita) :- 	sabeQueNao(Testemunha,Sobre,Suspeita),write(Testemunha),write(' sabe que '), 
+					write(Suspeita),write(' nao tem relacao com o crime.'),nl,!;write(Testemunha),
+					write(' nao sabe se '), write(Suspeita),write(' tem relacao com o crime.'),nl.
+
 
 
