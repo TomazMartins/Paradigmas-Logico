@@ -102,13 +102,13 @@ retiraSuspeito(X) :- retract(suspeito(X)),write('Suspeito retirado'),nl.
 retiraLocal(X) :- retract(local(X)),write('Local retirado'),nl.
 retiraArma(X) :- retract(arma(X)),write('Arma retirada'),nl.
 
-start :- tab(5),write('Seja bem-vindo a Delegacia Prolog!'),nl,
+start :- nl,tab(5),write('Seja bem-vindo a Delegacia Prolog!'),nl,
          tab(5),write('Aqui solucionamos os crimes utilizando raciocionio logico.'),nl,nl,
          tab(5),write('Qual o seu nome, agente?'),nl,read(X),nl,
          tab(5),write('Ola, agente '),write(X),write(', execute recebendoCaso(Caso) para receber o seu proximo caso.'),nl,
          tab(5),write('Bom trabalho!'),nl.
 
-caso1 :- tab(5),write('Um grande empresario foi assassinado dentro da sua propria casa.'),nl,
+caso1 :- nl,tab(5),write('Um grande empresario foi assassinado dentro da sua propria casa.'),nl,
          tab(5),write('Alguns suspeitos ja foram identificados e levados para sala de interrogatorio.'),nl,
          tab(5),write('Os possiveis locais e armas ja estao inclusos no seu banco de dados.'),nl,
          tab(5),write('Interroge os suspeitos e atualize o banco de forma a auxiliar na conclusao do caso.'),nl,
@@ -118,7 +118,7 @@ caso1 :- tab(5),write('Um grande empresario foi assassinado dentro da sua propri
          tab(5),write('Se precisar de ajuda, consulte manualDoAgente para ver quais recursos voce tem.'),nl,nl,
 	 tab(5),write('Bom trabalho!'),nl.
 
-caso2 :- tab(5),write('Uma mae de familia foi morta dentro da sua propria casa.'),nl,
+caso2 :- nl,tab(5),write('Uma mae de familia foi morta dentro da sua propria casa.'),nl,
          tab(5),write('Alguns suspeitos ja foram identificados e levados para a delegacia.'),nl,
          tab(5),write('Os possiveis locais e armas ja estao inclusos no seu banco de dados.'),nl,
          tab(5),write('Interroge os suspeitos e atualize o banco de forma a auxiliar na conclusao do caso.'),nl,
@@ -134,7 +134,7 @@ pergunta(Caso,Testemunha,Sobre,Suspeita) :- sabeQueNao(Caso,Testemunha,Sobre,Sus
                                             tab(5),write(Testemunha),
                                             write(' nao sabe se '),write(Suspeita),write(' tem relacao com o crime.'),nl,nl,nl.
 
-solucao :- tab(5),write('Solucionou o caso, agente? Parabens! Diga-me qual o nome do caso solucionado?'),nl,
+solucao :- nl,tab(5),write('Solucionou o caso, agente? Parabens! Diga-me qual o nome do caso solucionado?'),nl,
            tab(5),read(Caso),nl,
            tab(5),write('Qual o nome do criminoso?'),nl,
            tab(5),read(Criminoso),nl,
@@ -170,7 +170,7 @@ recebendoCaso(X) :- Y is rand(2) + 1, X is Y - fp(Y), nl,tab(5),
                     write('Execute caso1 ou caso2 para verificar as informacoes atuais sobre o caso.'),nl,tab(5),
                     write('Seu caso eh...'),nl,nl.
 
-manualDoAgente :- tab(5),write('Use listarSuspeitos, listarArmas,listarLocais para verificar os possiveis itens dos seus dados'),nl,nl,
+manualDoAgente :- nl,tab(5),write('Use listarSuspeitos, listarArmas,listarLocais para verificar os possiveis itens dos seus dados'),nl,nl,
                   tab(5),write('Use retiraSuspeito(Suspeito), retiraArma(Arma), retiraLocal(Local) quando este item nao tiver relacao com o crime'),nl,nl,
 	          tab(5),write('Use pergunta(Caso,Testemunha,Sobre,Suspeita) para interrogar a Testemunha do Caso Sobre a sua Suspeita.'),nl,nl,
 		  tab(5),write('Use possivelCrime(Susteito,Arma,Local) para verificar os possiveis crimes de acordo com seus dados atuais.'),nl,nl,
