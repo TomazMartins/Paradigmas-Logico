@@ -36,17 +36,19 @@ sabeQueNao(caso1,'coronel mostarda',suspeito,'dona branca').
 sabeQueNao(caso1,'coronel mostarda',arma,corda).
 sabeQueNao(caso1,'coronel mostarda',arma,punhal).
 sabeQueNao(caso1,'coronel mostarda',local,biblioteca).
+
 sabeQueNao(caso2,'coronel mostarda',suspeito,'dona branca').
 sabeQueNao(caso2,'coronel mostarda',arma,corda).
 sabeQueNao(caso2,'coronel mostarda',arma,punhal).
 sabeQueNao(caso2,'coronel mostarda',local,biblioteca).
 
-sabeQueNao(caso1,'dona branca',susteito,'dona violeta'). 
-sabeQueNao(caso1,'dona branca',arma,veneno).
+sabeQueNao(caso1,'dona branca',susteito,'dona violeta'). 	%%Alterado
+sabeQueNao(caso1,'dona branca',arma,veneno).			%%Alterado
 sabeQueNao(caso1,'dona branca',local,'salao de jogos').
-sabeQueNao(caso1,'dona branca',local, adega).
-sabeQueNao(caso2,'dona branca',susteito,'professor black'). 
-sabeQueNao(caso2,'dona branca',arma,espingarda).
+sabeQueNao(caso1,'dona branca',local, adega). 			
+
+sabeQueNao(caso2,'dona branca',susteito,'professor black'). 	%%Alterado
+sabeQueNao(caso2,'dona branca',arma,espingarda).		%%Alterado
 sabeQueNao(caso2,'dona branca',local,'salao de jogos').
 sabeQueNao(caso2,'dona branca',local, adega).
 
@@ -55,6 +57,7 @@ sabeQueNao(caso1,'senhor marinho',arma,'chave inglesa').
 sabeQueNao(caso1,'senhor marinho',local,escritorio).
 sabeQueNao(caso1,'senhor marinho',local,entrada).
 sabeQueNao(caso1,'senhor marinho',local,'sala de musica').
+
 sabeQueNao(caso2,'senhor marinho',suspeito,desconhecido).
 sabeQueNao(caso2,'senhor marinho',arma,'chave inglesa').
 sabeQueNao(caso2,'senhor marinho',local,escritorio).
@@ -65,6 +68,7 @@ sabeQueNao(caso1,'dona violeta',suspeito,'senhor marinho').
 sabeQueNao(caso1,'dona violeta',suspeito,'senhorita rosa').
 sabeQueNao(caso1,'dona violeta',arma,castical).
 sabeQueNao(caso1,'dona violeta',local,'sala de jantar').
+
 sabeQueNao(caso2,'dona violeta',suspeito,'senhor marinho').
 sabeQueNao(caso2,'dona violeta',suspeito,'senhorita rosa').
 sabeQueNao(caso2,'dona violeta',arma,castical).
@@ -72,22 +76,24 @@ sabeQueNao(caso2,'dona violeta',local,'sala de jantar').
 
 sabeQueNao(caso1,'professor black',suspeito,desconhecido).
 sabeQueNao(caso1,'professor black',arma,revolver).
-sabeQueNao(caso1,'professor black',arma,espingarda).
-sabeQueNao(caso1,'professor black',local,cozinha).
+sabeQueNao(caso1,'professor black',arma,espingarda). 		%%Alterado
+sabeQueNao(caso1,'professor black',local,cozinha). 		%%Alterado
 sabeQueNao(caso1,'professor black',local,'salao de festas').
+
 sabeQueNao(caso2,'professor black',suspeito,desconhecido).
 sabeQueNao(caso2,'professor black',arma,revolver).
-sabeQueNao(caso2,'professor black',arma,cano).
-sabeQueNao(caso2,'professor black',local,hall).
+sabeQueNao(caso2,'professor black',arma,cano). 			%%Alterado
+sabeQueNao(caso2,'professor black',local,hall). 		%%Alterado
 sabeQueNao(caso2,'professor black',local,'salao de festas').
 
 sabeQueNao(caso1,'senhorita rosa',suspeito,'coronel mostarda').
 sabeQueNao(caso1,'senhorita rosa',arma,'soco ingles').
-sabeQueNao(caso1,'senhorita rosa',local,hall).
+sabeQueNao(caso1,'senhorita rosa',local,hall). 			%%Alterado
 sabeQueNao(caso1,'senhorita rosa',local,'sala de estar').
+
 sabeQueNao(caso2,'senhorita rosa',suspeito,'coronel mostarda').
 sabeQueNao(caso2,'senhorita rosa',arma,'soco ingles').
-sabeQueNao(caso2,'senhorita rosa',local,jardim).
+sabeQueNao(caso2,'senhorita rosa',local,jardim). 		%%Alterado
 sabeQueNao(caso2,'senhorita rosa',local,'sala de estar').
 
 possivelCrime(Susteito,Arma,Local) :- suspeito(Suspeito),arma(Arma),local(Local).
@@ -109,16 +115,27 @@ caso1 :- tab(15),write('Um grande empresario foi assassinado dentro da sua propr
          tab(15),write('Quando tiver solucionado, execute solucao para informar o seu superior sobre o suspeito, local e arma do crime.'),nl,nl,
          tab(15),write('Bom trabalho!'),nl.
 
-pergunta(Caso,Testemunha,Sobre,Suspeita) :- sabeQueNao(Caso,Testemunha,Sobre,Suspeita),write(Testemunha),write(' sabe que '), 
-                                        write(Suspeita),write(' nao tem relacao com o crime.'),nl,!;write(Testemunha),
-                                        write(' nao sabe se '), write(Suspeita),write(' tem relacao com o crime.'),nl,nl,nl.
+pergunta(Caso,Testemunha,Sobre,Suspeita) :- sabeQueNao(Caso,Testemunha,Sobre,Suspeita),tab(5),write('PISTA: '),write(Testemunha),write(' sabe que '), 
+                                        write(Suspeita),write(' nao tem relacao com o crime.'),nl,nl,nl,!;tab(5),write(Testemunha),
+                                        write(' nao sabe se '),write(Suspeita),write(' tem relacao com o crime.'),nl,nl,nl.
 
-solucao :- tab(15),write('Solucionou o caso, agente? Parabens! Diga-me quem eh o criminoso?'),nl,
-           tab(15),read(Criminoso),nl,tab(15),write('E qual foi o local?'),nl,tab(15),read(Local),
-           nl,tab(15), write('E qual foi a arma usada?'),nl,tab(15), read(Arma),
-           Criminoso = 'professor black', Local = jardim, Arma = cano, nl,nl,tab(15),write('Aguarde um instante, agente...'),nl,nl,
+solucao :- tab(15),write('Solucionou o caso, agente? Parabens! Diga-me qual o numero do caso solucionado?'),nl,
+           read(Caso),nl,tab(15),write('Qual o nome do criminoso?'),read(Criminoso),nl,tab(15),write('E qual foi o local?'),nl,tab(15),read(Local),
+           nl,tab(15), write('E qual foi a arma usada?'),nl,tab(15), read(Arma), conferirCaso(Caso,Criminoso,Local,Arma).
+           
+conferirCaso(Caso,Criminoso,Local,Arma) :- Caso = caso1, Criminoso = 'professor black', Local = jardim, Arma = cano,
+	   
+	   nl,nl,tab(15),write('Aguarde um instante, agente...'),nl,nl,
            tab(15), write('Parabens! voce acertou! Professor Black acaba de confessar e o crime ocorreu como voce disse.'),nl,
-           tab(15), write('Continue assim que logo sera promovido.'),nl,tab(15),write('Ate a proxima!'),nl;nl,nl,tab(15),
+           tab(15), write('Continue assim que logo sera promovido.'),nl,tab(15),write('Ate a proxima!'),nl,!;
+	   
+	   Caso = caso2, Criminoso = 'dona violeta', Local = cozinha, Arma = veneno,
+
+           nl,nl,tab(15),write('Aguarde um instante, agente...'),nl,nl,
+           tab(15), write('Parabens! voce acertou! Dona Violeta acaba de confessar e o crime ocorreu como voce disse.'),nl,
+           tab(15), write('Continue assim que logo sera promovido.'),nl,tab(15),write('Ate a proxima!'),nl,!;
+	   
+           nl,nl,tab(15),
            write('Aguarde um instante, agente...'),nl,nl,
            tab(15), write('Lamento, voce errou. Existem testemunhas que sabem que nao foi desse jeito. Investigue mais um pouco...'),nl,nl.
 
