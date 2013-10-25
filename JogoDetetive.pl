@@ -96,45 +96,52 @@ sabeQueNao(caso2,'senhorita rosa',local,'sala de estar').
 
 %% REGRAS
 
-possivelCrime(Susteito,Arma,Local) :- suspeito(Suspeito),arma(Arma),local(Local).
+possivelCrime(Suspeito,Arma,Local) :- suspeito(Suspeito),arma(Arma),local(Local).
 
 retiraSuspeito(X) :- retract(suspeito(X)),write('Suspeito retirado'),nl.
 retiraLocal(X) :- retract(local(X)),write('Local retirado'),nl.
 retiraArma(X) :- retract(arma(X)),write('Arma retirada'),nl.
 
-start :- tab(15),write('Seja bem-vindo a Delegacia Prolog!'),nl,
-         tab(15),write('Aqui solucionamos os crimes utilizando raciocionio logico.'),nl,nl,
-         tab(15),write('Qual o seu nome, agente?'),nl,read(X),nl,
-         tab(15),write('Ola, agente '),write(X),write(', execute recebendoCaso(Caso) para receber o seu proximo caso.'),nl,
-         tab(15),write('Bom trabalho!'),nl.
+start :- tab(5),write('Seja bem-vindo a Delegacia Prolog!'),nl,
+         tab(5),write('Aqui solucionamos os crimes utilizando raciocionio logico.'),nl,nl,
+         tab(5),write('Qual o seu nome, agente?'),nl,read(X),nl,
+         tab(5),write('Ola, agente '),write(X),write(', execute recebendoCaso(Caso) para receber o seu proximo caso.'),nl,
+         tab(5),write('Bom trabalho!'),nl.
 
-caso1 :- tab(15),write('Um grande empresario foi assassinado dentro da sua propria casa.'),nl,
-         tab(15),write('Alguns suspeitos ja foram identificados e levados para o local do crime.'),nl,
-         tab(15),write('Os possiveis locais e armas ja estao inclusos no seu banco de dados.'),nl,
-         tab(15),write('Interroge os suspeitos e atualize o banco de forma a auxiliar na conclusao do caso.'),nl,
-         tab(15),write('Quando tiver solucionado, execute solucao para informar o seu superior sobre o suspeito, local e arma do crime.'),nl,nl,
-         tab(15),write('Os suspeitos apenas informam o que nao tem relacao com o crime, mas tem que ser feito a pergunta certa...'),nl,
-	 tab(15),write('Mas confiamos na sua habilidade de interrogar suspeitos, agente. Voce vai conseguir.'),nl,
-         tab(15),write('Se precisar de ajuda, consulte manualDoAgente para ver quais recursos voce tem.'),nl,nl,
-	 tab(15),write('Bom trabalho!'),nl.
+caso1 :- tab(5),write('Um grande empresario foi assassinado dentro da sua propria casa.'),nl,
+         tab(5),write('Alguns suspeitos ja foram identificados e levados para sala de interrogatorio.'),nl,
+         tab(5),write('Os possiveis locais e armas ja estao inclusos no seu banco de dados.'),nl,
+         tab(5),write('Interroge os suspeitos e atualize o banco de forma a auxiliar na conclusao do caso.'),nl,
+         tab(5),write('Quando tiver solucionado, execute solucao para informar o seu superior sobre o suspeito, local e arma do crime.'),nl,nl,
+         tab(5),write('Lembre-se que os suspeitos apenas informam o que nao tem relacao com o crime, mas tem que ser feito a pergunta certa...'),nl,
+	 tab(5),write('Nao se preocupe, confiamos na sua habilidade de interrogar suspeitos, agente. Voce vai conseguir.'),nl,
+         tab(5),write('Se precisar de ajuda, consulte manualDoAgente para ver quais recursos voce tem.'),nl,nl,
+	 tab(5),write('Bom trabalho!'),nl.
 
-caso2 :- tab(15),write('Uma mãe de familia foi morta dentro da sua propria casa.'),nl,
-         tab(15),write('Alguns suspeitos ja foram identificados e levados para a delegacia.'),nl,
-         tab(15),write('Os possiveis locais e armas ja estao inclusos no seu banco de dados.'),nl,
-         tab(15),write('Interroge os suspeitos e atualize o banco de forma a auxiliar na conclusao do caso.'),nl,
-         tab(15),write('Quando tiver solucionado, execute solucao para informar o seu superior sobre o suspeito, local e arma do crime.'),nl,nl,
-         tab(15),write('Os suspeitos apenas informam o que nao tem relacao com o crime, mas tem que ser feito a pergunta certa...'),nl,
-	 tab(15),write('Mas confiamos na sua habilidade de interrogar suspeitos, agente. Voce vai conseguir.'),nl,
-	 tab(15),write('Se precisar de ajuda, consulte manualDoAgente para ver quais recursos voce tem.'),nl,nl,
-	 tab(15),write('Bom trabalho!'),nl.
+caso2 :- tab(5),write('Uma mae de familia foi morta dentro da sua propria casa.'),nl,
+         tab(5),write('Alguns suspeitos ja foram identificados e levados para a delegacia.'),nl,
+         tab(5),write('Os possiveis locais e armas ja estao inclusos no seu banco de dados.'),nl,
+         tab(5),write('Interroge os suspeitos e atualize o banco de forma a auxiliar na conclusao do caso.'),nl,
+         tab(5),write('Quando tiver solucionado, execute solucao para informar o seu superior sobre o suspeito, local e arma do crime.'),nl,nl,
+         tab(5),write('Lembre-se que os suspeitos apenas informam o que nao tem relacao com o crime, mas tem que ser feito a pergunta certa...'),nl,
+	 tab(5),write('Nao se preocupe, confiamos na sua habilidade de interrogar suspeitos, agente. Voce vai conseguir.'),nl,
+	 tab(5),write('Se precisar de ajuda, consulte manualDoAgente para ver quais recursos voce tem.'),nl,nl,
+	 tab(5),write('Bom trabalho!'),nl.
 
-pergunta(Caso,Testemunha,Sobre,Suspeita) :- sabeQueNao(Caso,Testemunha,Sobre,Suspeita),tab(5),write('PISTA: '),write(Testemunha),write(' sabe que '), 
-                                        write(Suspeita),write(' nao tem relacao com o crime.'),nl,nl,nl,!;tab(5),write(Testemunha),
-                                        write(' nao sabe se '),write(Suspeita),write(' tem relacao com o crime.'),nl,nl,nl.
+pergunta(Caso,Testemunha,Sobre,Suspeita) :- sabeQueNao(Caso,Testemunha,Sobre,Suspeita),
+                                            tab(5),write('PISTA: '),write(Testemunha),write(' sabe que '), 
+                                            write(Suspeita),write(' nao tem relacao com o crime.'),nl,nl,nl,!;                                            
+                                            tab(5),write(Testemunha),
+                                            write(' nao sabe se '),write(Suspeita),write(' tem relacao com o crime.'),nl,nl,nl.
 
-solucao :- tab(15),write('Solucionou o caso, agente? Parabens! Diga-me qual o numero do caso solucionado?'),nl,
-           read(Caso),nl,tab(15),write('Qual o nome do criminoso?'),read(Criminoso),nl,tab(15),write('E qual foi o local?'),nl,tab(15),read(Local),
-           nl,tab(15), write('E qual foi a arma usada?'),nl,tab(15), read(Arma), conferirCaso(Caso,Criminoso,Local,Arma).
+solucao :- tab(5),write('Solucionou o caso, agente? Parabens! Diga-me qual o nome do caso solucionado?'),nl,
+           tab(5),read(Caso),nl,
+           tab(5),write('Qual o nome do criminoso?'),nl,
+           tab(5),read(Criminoso),nl,
+           tab(5),write('E qual foi o local?'),nl,tab(5),read(Local),nl,
+           tab(5),write('E qual foi a arma usada?'),nl,
+           tab(5),read(Arma), 
+           conferirCaso(Caso,Criminoso,Local,Arma).
            
 conferirCaso(Caso,Criminoso,Local,Arma) :- Caso = caso1, Criminoso = 'professor black', Local = jardim, Arma = cano,
 	   
@@ -158,12 +165,15 @@ listarSuspeitos :-listing(suspeito).
 listarArmas:- listing(arma).
 listarLocais :- listing(local).
 
-recebendoCaso(X) :- Y is rand(2) + 1, X is Y - fp(Y), nl,tab(5),write('Nao esqueca o numero do seu caso, agente.'),nl,tab(5),write('Execute caso1 ou caso2 para verificar as informacoes atuais sobre o caso.'),nl,nl.
+recebendoCaso(X) :- Y is rand(2) + 1, X is Y - fp(Y), nl,tab(5),
+                    write('Grave numero do seu caso, agente.'),nl,tab(5),
+                    write('Execute caso1 ou caso2 para verificar as informacoes atuais sobre o caso.'),nl,tab(5),
+                    write('Seu caso eh...'),nl,nl.
 
-manualDoAgente :- write('Use pergunta(Caso,Testemunha,Sobre,Suspeita) para interrogar a Testemunha do Caso Sobre a sua Suspeita.'),nl,
-		  write('use possivelCrime(Susteito,Arma,Local) para verificar os possiveis crimes de acordo com seus dados atuais.'),nl,
-                  write('Use listarSuspeitos, listarArmas,listarLocais para verificar os possiveis itens dos seus dados'),nl,
-                  write('Use retiraSuspeito(Suspeito), retiraArma(Arma), retiraLocal(Local) quando este item nao tiver relacao com o crime'),nl,
-	          write('Use solucao para entregar o resultado do caso para o seu superior'),nl,
-		  write('Use todos esses recursos para ajudar a solucionar esse caso.'),nl,nl,
-                  write('Bom trabalho!').
+manualDoAgente :- tab(5),write('Use listarSuspeitos, listarArmas,listarLocais para verificar os possiveis itens dos seus dados'),nl,nl,
+                  tab(5),write('Use retiraSuspeito(Suspeito), retiraArma(Arma), retiraLocal(Local) quando este item nao tiver relacao com o crime'),nl,nl,
+	          tab(5),write('Use pergunta(Caso,Testemunha,Sobre,Suspeita) para interrogar a Testemunha do Caso Sobre a sua Suspeita.'),nl,nl,
+		  tab(5),write('Use possivelCrime(Susteito,Arma,Local) para verificar os possiveis crimes de acordo com seus dados atuais.'),nl,nl,
+                  tab(5),write('Use solucao para entregar o resultado do caso para o seu superior'),nl,nl,
+		  tab(5),write('Use todos esses recursos para ajudar a solucionar esse caso.'),nl,nl,
+                  tab(5),write('Bom trabalho!'),nl.
