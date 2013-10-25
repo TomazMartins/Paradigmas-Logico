@@ -95,3 +95,13 @@ solucao :- tab(15),write('Solucionou o caso, agente? Parabens! Diga-me quem eh o
 	   tab(15), write('Continue assim que logo sera promovido.'),nl,tab(15),write('Ate a proxima!'),nl;nl,nl,tab(15),
 	   write('Aguarde um instante, agente...'),nl,nl,
 	   tab(15), write('Lamento, voce errou. Existem testemunhas que sabem que nao foi desse jeito. Investigue mais um pouco...'),nl,nl.
+
+banco :- listarSuspeitos,listarArmas,listarLocais.
+
+listarSuspeitos :-listing(suspeito).
+
+listarArmas:- listing(arma).
+
+listarLocais :- listing(local).
+
+
