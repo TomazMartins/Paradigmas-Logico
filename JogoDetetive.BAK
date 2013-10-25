@@ -82,7 +82,8 @@ imprimir_TextoInicial :- send(@guiPrincipal, display, new(@textoInicial, text('\
   Aqui solucionamos os crimes utilizando raciocinio logico.
   Aperte OK para iniciar o caso para o qual voce foi designado.'))).
   
-mostrar_BotaoOkInicial :- send(@guiPrincipal, display, button(ok, message(@guiPrincipal, return, @nil )), point(150,100)).
+mostrar_BotaoOkInicial :- send(@guiPrincipal, display, button(ok, message(@guiPrincipal, return, @nil )), point(150,100));
+                       iniciar_GuiCaso.
 
 caso1 :- tab(15), write('Um grande empresario foi assassinado dentro da sua propria casa.'), nl,
          tab(15), write('Alguns suspeitos ja foram identificados e levados para a casa do falecido.'), nl,
