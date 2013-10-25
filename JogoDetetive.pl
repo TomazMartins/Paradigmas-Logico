@@ -82,9 +82,16 @@ caso1 :- tab(15),write('Um grande empresario foi assassinado dentro da sua propr
 	 tab(15),write('Interroge os suspeitos e atualize o banco de forma a auxiliar na conclusao do caso.'),nl,
 	 tab(15),write('Quando tiver solucionado, execute solucao(Suspeito,Arma,Local) passando as respostas para cada parametro.'),nl,nl,
 	 tab(15),write('Bom trabalho!'),nl.
+
 pergunta(Testemunha,Sobre,Suspeita) :- 	sabeQueNao(Testemunha,Sobre,Suspeita),write(Testemunha),write(' sabe que '), 
 					write(Suspeita),write(' nao tem relacao com o crime.'),nl,!;write(Testemunha),
 					write(' nao sabe se '), write(Suspeita),write(' tem relacao com o crime.'),nl.
 
-
-
+solucao :- tab(15),write('Solucionou o caso, agente? Parabens! Diga-me quem eh o criminoso?'),nl,
+	   tab(15),read(Criminoso),nl,tab(15),write('E qual foi o local?'),nl,tab(15),read(Local),
+	   nl,tab(15), write('E qual foi a arma usada?'),nl,tab(15), read(Arma),
+	   Criminoso = 'professor black', Local = jardim, Arma = cano, nl,nl,tab(15),write('Aguarde um instante, agente...'),nl,nl,
+	   tab(15), write('Parabens! voce acertou! Professor Black acaba de confessar e o crime ocorreu como voce disse.'),nl,
+	   tab(15), write('Continue assim que logo sera promovido.'),nl,tab(15),write('Ate a proxima!'),nl;nl,nl,tab(15),
+	   write('Aguarde um instante, agente...'),nl,nl,
+	   tab(15), write('Lamento, voce errou. Existem testemunhas que sabem que nao foi desse jeito. Investigue mais um pouco...'),nl,nl.
