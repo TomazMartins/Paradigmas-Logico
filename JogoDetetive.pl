@@ -99,9 +99,7 @@ solucao :- tab(15),write('Solucionou o caso, agente? Parabens! Diga-me quem eh o
 banco :- listarSuspeitos,listarArmas,listarLocais.
 
 listarSuspeitos :-listing(suspeito).
-
 listarArmas:- listing(arma).
-
 listarLocais :- listing(local).
 
-
+randomico(X) :- Y is rand(100) + 1, X is Y - fp(Y).
