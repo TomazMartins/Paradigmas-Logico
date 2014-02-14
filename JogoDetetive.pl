@@ -2,7 +2,7 @@
 :- dynamic arma/1.
 :- dynamic local/1. 
 
-%% Fatos
+
 
 suspeito('coronel mostarda').
 suspeito('dona branca').
